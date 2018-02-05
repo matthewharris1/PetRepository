@@ -13,7 +13,7 @@ class PetRepository extends Pet {
   def all() : List[Pet] = Nil
 
   def findByName(name: String) : Option[Pet] = None
-
+  
   def dogs() : List[Pet] = Nil
 
   def cats() : List[Pet] = Nil
