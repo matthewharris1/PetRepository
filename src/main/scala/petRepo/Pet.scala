@@ -5,4 +5,6 @@ package petRepo
   */
 trait Pet {
 
+  val name: String
+
 }
