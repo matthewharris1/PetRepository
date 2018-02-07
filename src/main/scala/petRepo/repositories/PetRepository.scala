@@ -36,9 +36,7 @@ object PetRepository {
 
   }
 
-  def removeByName(name : String) : List[Pet] = {
-
-  }
+  def removeByName(name : String) : List[Pet] = _pets.toList
 
   def update(pet: Pet) : List[Pet] = _pets.toList
 

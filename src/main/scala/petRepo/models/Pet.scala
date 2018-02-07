@@ -19,13 +19,13 @@ trait Meow extends Talking {
   override def talk: String = "meow"
 }
 
-final class Dog(override val name: String) extends Pet with Woof {
+final case class Dog(override val name: String) extends Pet with Woof {
 
   override def toString = s"The Dogs name is $name and goes $talk"
 
 }
 
-final class Cat (override val name : String) extends Pet with Meow {
+final case class Cat (override val name : String) extends Pet with Meow {
 
   override def toString = s"The Cats name $name and goes $talk"
 

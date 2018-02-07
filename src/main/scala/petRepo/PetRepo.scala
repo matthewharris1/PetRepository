@@ -13,17 +13,17 @@ object PetRepo extends App {
 
   //println(pets)
 
-  //create dog example
+  //create dog example. new keyword not needed in front of Dog as it's a case class.
 
-  val d1 = new Dog("Jessie")
+  val d1 = Dog("Jessie")
 
   //add dog example
 
   PetRepository.add(d1)
 
-  //generate 100 dogs by foreach
+  //generate 100 dogs by foreach.
 
-  val dogs = for(i<- 1 to 100) yield new Dog(s"Dog $i")
+  val dogs = for(i<- 1 to 100) yield Dog(s"Dog $i")
 
   //adds list of 100 dogs to list individually
   PetRepository.add(dogs: _*)
