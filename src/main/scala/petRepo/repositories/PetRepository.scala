@@ -1,6 +1,6 @@
 package petRepo.repositories
 
-import petRepo.Pet
+import petRepo.models.Pet
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -14,7 +14,9 @@ object PetRepository {
   def all() : List[Pet] = _pets.toList
 
   def findByName(name: String) : Option[Pet] = {
-    
+
+    _pets.find(p => p.name == name)
+
   }
 
   def dogs() : List[Pet] = _pets.toList
@@ -23,9 +25,20 @@ object PetRepository {
 
   def other() : List[Pet] = _pets.toList
 
-  def add(pet : Pet*) : List[Pet] = _pets.toList
+  //Pet* means you can either pass one or multiple of the same type through
+  def add(pet : Pet*) : List[Pet] = {
 
-  def removeByName(name : String) : List[Pet] = _pets.toList
+    //_pets.++=(pet)
+    //all()
+
+    pet.foreach(p => _pets.+=(p))
+    all()
+
+  }
+
+  def removeByName(name : String) : List[Pet] = {
+
+  }
 
   def update(pet: Pet) : List[Pet] = _pets.toList
 
