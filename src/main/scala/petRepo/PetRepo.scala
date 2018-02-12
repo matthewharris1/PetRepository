@@ -17,11 +17,17 @@ object PetRepo extends App {
 
   val d1 = Dog("Jessie")
 
+  val d2 = Dog("Brian")
+
   //add dog example
 
-  PetRepository.add(d1)
+  PetRepository.add(d1, d2)
+
+  println(PetRepository.all())
 
   //generate 100 dogs by foreach.
+
+  PetRepository.findByName(d1.name)
 
   val dogs = for(i<- 1 to 100) yield Dog(s"Dog $i")
 
@@ -32,7 +38,7 @@ object PetRepo extends App {
   val p2 = PetRepository.all()
   println(p2)
 
-  PetRepository.removeByName(d1.name)
+  PetRepository.removeByName(d2.name)
 
   val p3 = PetRepository.all()
   println(p3)
