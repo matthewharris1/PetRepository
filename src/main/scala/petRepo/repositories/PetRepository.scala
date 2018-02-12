@@ -38,6 +38,14 @@ object PetRepository {
 
   def removeByName(name : String) : List[Pet] = {
 
+
+
+    /*
+    val x = _pets.indexOf(name)
+    _pets.remove(x)
+    */
+    all()
+
   }
 
   def update(pet: Pet) : List[Pet] = _pets.toList
