@@ -13,17 +13,31 @@ object PetRepository {
 
   def all() : List[Pet] = _pets.toList
 
+
+
   def findByName(name: String) : Option[Pet] = {
 
     _pets.find(p => p.name == name)
 
   }
 
-  def dogs() : List[Pet] = _pets.toList
+  def dogs() : List[Dog] = {
+    _pets.toList.flatMap {
+      case d @ Dog (_) => Some(d)
+      case _ => None
+    }
+  }
 
-  def cats() : List[Pet] = _pets.toList
+  def cats() : List[Cat] = {
+    _pets.toList.flatMap {
+      case c @ Cat (_) => Some(c)
+      case _ => None
+    }
+  } 
 
   def other() : List[Pet] = _pets.toList
+
+
 
   //Pet* means you can either pass one or multiple of the same type through
   def add(pet : Pet*) : List[Pet] = {
@@ -33,6 +47,7 @@ object PetRepository {
 
     pet.foreach(p => _pets.+=(p))
     all()
+
 
   }
 
