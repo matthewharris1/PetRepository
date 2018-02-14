@@ -15,9 +15,19 @@ object PetRepository {
 
   def findByName(name: String) : Option[Pet] = None
 
-  def dogs() : List[Pet] = _pets.toList
+  def dogs() : List[Dog] = {
+    _pets.toList.flatMap {
+      case d @ Dog (_) => Some(d)
+      case _ => None
+    }
+  }
 
-  def cats() : List[Pet] = _pets.toList
+  def cats() : List[Cat] = {
+    _pets.toList.flatMap {
+      case c @ Cat (_) => Some(c)
+      case _ => None
+    }
+  } 
 
   def other() : List[Pet] = _pets.toList
 
