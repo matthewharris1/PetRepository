@@ -13,12 +13,8 @@ object PetRepository {
 
   def all() : List[Pet] = _pets.toList
 
-
-
   def findByName(name: String) : Option[Pet] = {
-
     _pets.find(p => p.name == name)
-
   }
 
   def dogs() : List[Dog] = {
@@ -33,36 +29,21 @@ object PetRepository {
       case c @ Cat (_) => Some(c)
       case _ => None
     }
-  } 
-
+  }
   def other() : List[Pet] = _pets.toList
-
-
-
   //Pet* means you can either pass one or multiple of the same type through
-  def add(pet : Pet*) : List[Pet] = {
 
+  def add(pet : Pet*) : List[Pet] = {
     //_pets.++=(pet)
     //all()
-
     pet.foreach(p => _pets.+=(p))
     all()
-
-
   }
-
   def removeByName(name : String) : List[Pet] = {
-
-
-
-    /*
     val x = _pets.indexOf(name)
     _pets.remove(x)
-    */
+
     all()
-
   }
-
   def update(pet: Pet) : List[Pet] = _pets.toList
-
 }
